@@ -1,0 +1,333 @@
+/* v28 homepage — visitor-first page structure.
+   Homepage-only layout: all other pages and management features stay unchanged. */
+body[data-page="index.html"] { background:#fff; }
+body[data-page="index.html"] main { background:#fff; }
+body[data-page="index.html"] main > .home-section { border-top:0; }
+body[data-page="index.html"] main > .home-section.alt,
+body[data-page="index.html"] main > .home-section:not(.alt) { background:#fff; }
+body[data-page="index.html"] .home-section { padding:clamp(45px,5.2vw,72px) 0; }
+body[data-page="index.html"] .home-section .wrap { max-width:1160px; }
+
+/* Keep the existing clinic photos, caption, live status and timed cross-fade. */
+body[data-page="index.html"] .hero { min-height:470px; height:clamp(470px,42vw,545px); }
+body[data-page="index.html"] .hero::after { background:linear-gradient(90deg,rgba(13,31,42,.22),rgba(13,31,42,.02) 68%); }
+body[data-page="index.html"] .hero-content { max-width:575px; padding:29px 34px;
+  background:rgba(255,255,255,.83); border:1px solid rgba(255,255,255,.75);
+  border-left:0; border-radius:18px!important; backdrop-filter:blur(3px);
+  box-shadow:0 12px 36px rgba(20,35,48,.085); }
+body[data-page="index.html"] .hero-content h1 { font-size:clamp(22px,2.1vw,29px); line-height:1.65; }
+body[data-page="index.html"] .hero-content p { color:#364854; font-size:13px; }
+body[data-page="index.html"] .hero-content .button { box-shadow:none; }
+
+/* Three meaningful shortcuts directly after the main visual. */
+body[data-page="index.html"] .home-shortcuts { position:relative; z-index:3; background:transparent; margin-top:-27px; }
+body[data-page="index.html"] .shortcut-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
+body[data-page="index.html"] .shortcut { display:flex; align-items:center; gap:13px; min-width:0; min-height:95px;
+  padding:19px 20px; background:#fff; border:1px solid #dce3e6; border-radius:14px;
+  box-shadow:0 6px 26px rgba(26,45,57,.075); color:#243c4d; text-decoration:none;
+  transition:border-color .2s ease, transform .2s ease; }
+body[data-page="index.html"] .shortcut:hover { border-color:#7893a3; transform:translateY(-2px); }
+body[data-page="index.html"] .shortcut-number { align-self:center; font:600 13px/1 var(--sans);
+  font-variant-numeric:tabular-nums; color:#8b9faa; border-right:1px solid #dce3e6;
+  padding-right:13px; }
+body[data-page="index.html"] .shortcut-copy { display:flex; flex-direction:column; gap:4px; min-width:0; }
+body[data-page="index.html"] .shortcut strong { font-size:16px; letter-spacing:.025em; }
+body[data-page="index.html"] .shortcut small { font-size:12px; color:#77828a; line-height:1.45; }
+body[data-page="index.html"] .shortcut-arrow { font-size:20px; color:#668095; margin-left:auto; }
+
+/* Treatment choices, placed before deep background information. */
+body[data-page="index.html"] #specialties { padding-top:67px; }
+body[data-page="index.html"] #specialties .section-heading { justify-content:center; text-align:center; margin:0 0 26px; }
+body[data-page="index.html"] #specialties .section-heading h2 { font-size:clamp(25px,2.4vw,31px); margin:0 0 8px; }
+body[data-page="index.html"] #specialties .section-heading p {font-size:13px;color:#66747d;}
+body[data-page="index.html"] .dept-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:17px; }
+body[data-page="index.html"] .dept-card,
+body[data-page="index.html"] .glass-box.dept-card { border:1px solid #dee5e8; border-radius:16px!important;
+  padding:0 0 19px; background:#fff; overflow:hidden; box-shadow:none; min-width:0; min-height:0; }
+body[data-page="index.html"] .dept-card:hover { border-color:#91a8b6; background:#fff; transform:none!important; }
+body[data-page="index.html"] .dept-illustration { border-radius:0!important; aspect-ratio:400 / 190; }
+body[data-page="index.html"] .dept-illustration svg { width:100%; height:100%; display:block; }
+body[data-page="index.html"] .dept-card h3 { margin:16px 19px 7px; font-size:17px; line-height:1.5; }
+body[data-page="index.html"] .dept-card p { margin:0 19px; font-size:12px; line-height:1.75; color:#5e6d75; }
+body[data-page="index.html"] #specialties .home-actions {margin-top:26px;}
+
+/* Visit information: schedule and notice board shown in parallel. */
+body[data-page="index.html"] .home-visit { background:#f5f7f8!important; padding:62px 0; }
+body[data-page="index.html"] .visit-heading { text-align:center; margin:0 0 28px; }
+body[data-page="index.html"] .visit-heading h2 {font-size:clamp(25px,2.4vw,31px); margin:0; color:#2c3b47;}
+body[data-page="index.html"] .visit-layout { display:grid; grid-template-columns:minmax(0,1.34fr) minmax(0,1fr);
+  gap:22px; align-items:stretch; }
+body[data-page="index.html"] .visit-hours,
+body[data-page="index.html"] .visit-news > .wrap > .home-panel { background:#fff; border:1px solid #e0e5e8;
+  border-radius:16px!important; padding:25px 26px; box-shadow:none; height:100%; }
+body[data-page="index.html"] .visit-news { width:auto; padding:0; border:0; background:transparent; min-width:0; }
+body[data-page="index.html"] .visit-news > .wrap {max-width:none; width:100%; margin:0;}
+body[data-page="index.html"] .visit-news .section-heading,
+body[data-page="index.html"] .home-clinic-hours-title {justify-content:center; align-items:center; text-align:center; margin:0 0 17px;}
+body[data-page="index.html"] .visit-news h2,
+body[data-page="index.html"] .visit-hours h2 { font-size:23px; font-weight:700; margin:0; color:#2a3d4b; }
+body[data-page="index.html"] .visit-hours { grid-column:auto; margin:0; border-top:0; min-width:0; }
+body[data-page="index.html"] .visit-hours .clinic-schedule {border:0; padding:0; border-radius:0; background:#fff;}
+body[data-page="index.html"] .visit-hours .schedule-scroll { margin:0 0 14px; overflow-x:auto; }
+body[data-page="index.html"] .visit-hours .schedule {margin:0; min-width:580px; font-size:13px;}
+body[data-page="index.html"] .visit-hours .schedule th,
+body[data-page="index.html"] .visit-hours .schedule td { padding:10px 4px; }
+body[data-page="index.html"] .visit-hours .hours-notes {font-size:12px;color:#68737b;line-height:1.75;}
+body[data-page="index.html"] .visit-hours .hours-notes p {font-size:12px;margin:0 0 8px;}
+body[data-page="index.html"] .visit-news .news-list a { padding:11px 2px; gap:10px; }
+body[data-page="index.html"] .visit-news .news-date {flex-basis:81px; font-size:11px; }
+body[data-page="index.html"] .visit-news .news-title {font-size:12px;line-height:1.55;min-width:0;}
+body[data-page="index.html"] .visit-news .news-list li:nth-child(n+6) {display:none;}
+body[data-page="index.html"] .visit-news .home-news-actions {margin-top:19px;}
+
+/* Month and next-month calendars remain connected to existing site.js. */
+body[data-page="index.html"] #home-calendar { background:#fff!important; padding-top:66px; padding-bottom:70px; }
+body[data-page="index.html"] #home-calendar > .wrap {max-width:1160px; padding:0; border:0; background:transparent; box-shadow:none;}
+body[data-page="index.html"] #home-calendar .section-heading {justify-content:center;text-align:center;margin:0 0 25px;}
+body[data-page="index.html"] #home-calendar .section-heading h2 {font-size:clamp(25px,2.4vw,31px); margin:0;}
+body[data-page="index.html"] .calendar-grid {gap:20px; margin-top:0;}
+body[data-page="index.html"] .calendar-card { border:1px solid #dce4e7; border-radius:15px!important; padding:clamp(15px,2.2vw,25px); }
+body[data-page="index.html"] .calendar-key {margin-top:20px;}
+
+/* Practical route directions next to the clinic photograph. */
+body[data-page="index.html"] #home-access {background:#f5f7f8!important; padding:62px 0;}
+body[data-page="index.html"] #home-access .home-panel { border:0; box-shadow:none; padding:0;
+  border-radius:17px!important; overflow:hidden; background:#fff; }
+body[data-page="index.html"] #home-access .home-feature { display:grid; grid-template-columns:1.08fr 1fr;
+  align-items:stretch; gap:0; }
+body[data-page="index.html"] #home-access figure {margin:0; min-height:300px;}
+body[data-page="index.html"] #home-access .feature-photo img {width:100%;height:100%;min-height:300px;
+  object-fit:cover;max-height:none;border-radius:0!important;background:#fff;}
+body[data-page="index.html"] #home-access .feature-copy { padding:clamp(25px,4vw,48px); align-self:center; }
+body[data-page="index.html"] #home-access .feature-copy h2 {font-size:clamp(25px,2.4vw,31px);}
+body[data-page="index.html"] #home-access .feature-copy p {font-size:14px;line-height:1.85;}
+body[data-page="index.html"] #home-access .access-points span {background:#f0f4f5; color:#385369; border:1px solid #e2e9ec;}
+
+/* Introductory profiles are secondary; keep complete content and individual links. */
+body[data-page="index.html"] .home-people {padding-top:70px; padding-bottom:78px; background:#fff!important;}
+body[data-page="index.html"] .people-heading {text-align:center;margin:0 0 29px;}
+body[data-page="index.html"] .people-heading h2 {font-size:clamp(25px,2.4vw,31px);margin:0;}
+body[data-page="index.html"] .people-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:stretch;}
+body[data-page="index.html"] .home-people-item {min-width:0;padding:0;background:transparent;}
+body[data-page="index.html"] .home-people-item > .wrap {width:100%;max-width:none;height:100%;margin:0;}
+body[data-page="index.html"] .home-person .home-feature,
+body[data-page="index.html"] .home-place .home-about { display:flex; flex-direction:column; align-items:stretch;
+  gap:0; height:100%; background:#fff;border:1px solid #e0e5e8; border-radius:16px!important;
+  box-shadow:none; padding:0;overflow:hidden; }
+body[data-page="index.html"] .home-people-item figure { margin:0; flex:0 0 auto; }
+body[data-page="index.html"] .home-person .feature-photo img,
+body[data-page="index.html"] .home-place img { display:block; width:100%;height:250px;object-fit:cover;
+  border-radius:0!important; max-height:none; background:#f7f8f8;}
+body[data-page="index.html"] .home-person .feature-copy,
+body[data-page="index.html"] .home-place .home-about > div { padding:25px 27px 29px; display:flex;
+  flex-direction:column;align-items:flex-start;flex:1;min-width:0; }
+body[data-page="index.html"] .home-people-item h2 {font-size:23px;margin:0 0 11px;}
+body[data-page="index.html"] .home-people-item p {font-size:13px;line-height:1.88;color:#586872;}
+body[data-page="index.html"] .home-people-item .button {margin-top:auto;align-self:flex-start;}
+
+/* Stable hover and anchored navigation. */
+body[data-page="index.html"] .home-section[id], body[data-page="index.html"] [id="home-hours"] {scroll-margin-top:120px;}
+
+@media(max-width:1150px){
+ body[data-page="index.html"] .visit-layout {grid-template-columns:1fr;}
+ body[data-page="index.html"] .visit-news > .wrap > .home-panel {padding:24px 26px;}
+ body[data-page="index.html"] .visit-hours .schedule {min-width:580px;}
+ body[data-page="index.html"] .visit-news .news-list li:nth-child(n+6) {display:list-item;}
+}
+@media(max-width:800px){
+ body[data-page="index.html"] .shortcut-grid {gap:8px;}
+ body[data-page="index.html"] .shortcut {padding:12px 13px; min-height:85px;gap:9px;}
+ body[data-page="index.html"] .shortcut-number {padding-right:8px;font-size:11px;}
+ body[data-page="index.html"] .shortcut strong {font-size:13px;}
+ body[data-page="index.html"] .shortcut small {font-size:10px;}
+ body[data-page="index.html"] .shortcut-arrow {font-size:16px;}
+ body[data-page="index.html"] .dept-grid {grid-template-columns:repeat(2,minmax(0,1fr)); gap:13px;}
+ body[data-page="index.html"] #home-access .home-feature {grid-template-columns:1fr;}
+ body[data-page="index.html"] #home-access .feature-photo img {max-height:300px;min-height:0;}
+ body[data-page="index.html"] .people-grid {gap:14px;}
+ body[data-page="index.html"] .home-person .feature-photo img,
+ body[data-page="index.html"] .home-place img {height:205px;}
+ body[data-page="index.html"] .home-person .feature-copy,
+ body[data-page="index.html"] .home-place .home-about > div {padding:19px;}
+}
+@media(max-width:650px){
+ body[data-page="index.html"] .hero {min-height:420px; height:480px;}
+ body[data-page="index.html"] .hero-content {max-width:100%; padding:20px 19px;}
+ body[data-page="index.html"] .hero-content h1 {font-size:clamp(19px,5vw,24px);}
+ body[data-page="index.html"] .hero-content p {font-size:12px;}
+ body[data-page="index.html"] .home-shortcuts {margin-top:-17px;}
+ body[data-page="index.html"] .shortcut-grid {grid-template-columns:1fr;gap:7px;}
+ body[data-page="index.html"] .shortcut {min-height:65px;padding:12px 16px;gap:13px;border-radius:11px;}
+ body[data-page="index.html"] .shortcut-number {font-size:11px;}
+ body[data-page="index.html"] .shortcut strong {font-size:14px;}
+ body[data-page="index.html"] .shortcut small {font-size:11px;}
+ body[data-page="index.html"] .shortcut-arrow {font-size:18px;}
+ body[data-page="index.html"] #specialties {padding-top:44px;}
+ body[data-page="index.html"] #specialties .section-heading {margin-bottom:19px;}
+ body[data-page="index.html"] .dept-grid {grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px;}
+ body[data-page="index.html"] .dept-card h3 {font-size:14px;line-height:1.5;margin:12px 12px 5px;}
+ body[data-page="index.html"] .dept-card p {font-size:11px;line-height:1.6;margin:0 12px;}
+ body[data-page="index.html"] .dept-card {padding-bottom:14px;}
+ body[data-page="index.html"] .home-visit {padding:44px 0;}
+ body[data-page="index.html"] .visit-hours,body[data-page="index.html"] .visit-news > .wrap > .home-panel {padding:20px 16px;}
+ body[data-page="index.html"] .visit-news .news-list a {gap:8px;}
+ body[data-page="index.html"] .visit-news .news-list .news-date {flex-basis:70px;font-size:10px;}
+ body[data-page="index.html"] .visit-news .news-title {font-size:12px;}
+ body[data-page="index.html"] #home-calendar {padding:45px 0;}
+ body[data-page="index.html"] .calendar-grid {grid-template-columns:1fr;gap:13px;}
+ body[data-page="index.html"] #home-access {padding:45px 0;}
+ body[data-page="index.html"] #home-access .feature-copy {padding:23px 20px 28px;}
+ body[data-page="index.html"] .home-people {padding:48px 0 60px;}
+ body[data-page="index.html"] .people-grid {grid-template-columns:1fr;gap:19px;}
+ body[data-page="index.html"] .home-person .feature-photo img,
+ body[data-page="index.html"] .home-place img {height:auto;max-height:260px;aspect-ratio:16/10;object-fit:cover;}
+ body[data-page="index.html"] .home-people-item p {font-size:12px;}
+}
+@media(max-width:380px){
+ body[data-page="index.html"] .hero-content h1 {font-size:18px;}
+ body[data-page="index.html"] .dept-grid {grid-template-columns:1fr;}
+ body[data-page="index.html"] .dept-card {display:grid;grid-template-columns:125px 1fr;grid-template-rows:auto 1fr;
+   min-height:135px; padding:0;}
+ body[data-page="index.html"] .dept-illustration {grid-row:1/span 2;grid-column:1;aspect-ratio:auto;
+   min-height:135px; height:100%; }
+ body[data-page="index.html"] .dept-illustration svg {height:100%;width:100%;}
+ body[data-page="index.html"] .dept-card h3 {grid-column:2;margin:15px 11px 5px;}
+ body[data-page="index.html"] .dept-card p {grid-column:2;margin:0 11px 13px;}
+}
+@media(prefers-reduced-motion:reduce){
+ body[data-page="index.html"] .shortcut {transition:none;}
+}
+/* Show every weekday in the compact mobile schedule without horizontal scrolling. */
+@media(max-width:650px){
+ body[data-page="index.html"] .visit-hours .schedule {width:100%;min-width:0;table-layout:fixed;font-size:10px;}
+ body[data-page="index.html"] .visit-hours .schedule thead th:first-child,
+ body[data-page="index.html"] .visit-hours .schedule tbody th {width:83px;white-space:nowrap;font-size:10px;}
+ body[data-page="index.html"] .visit-hours .schedule thead th:not(:first-child) {width:auto;}
+ body[data-page="index.html"] .visit-hours .schedule th,
+ body[data-page="index.html"] .visit-hours .schedule td {padding:8px 0;font-size:10px;}
+}
+
+
+/* v29: After removing the shortcut strip, keep a deliberate gap from the hero
+   to the first clinical-services heading. */
+body[data-page="index.html"] .hero + .home-services,
+body[data-page="index.html"] .hero ~ .home-services:first-of-type {
+  padding-top:clamp(38px,4.5vw,61px);
+}
+
+/* The doctor introduction's body copy previously stopped short of the right
+   edge, creating a large, seemingly empty column in the card. */
+body[data-page="index.html"] .home-person .feature-copy {
+  width:100%;
+  align-items:stretch;
+}
+body[data-page="index.html"] .home-person .feature-copy p {
+  width:100%;
+  max-width:none;
+  margin-right:0;
+  text-wrap:pretty;
+}
+body[data-page="index.html"] .home-person .feature-copy h2 {
+  align-self:flex-start;
+}
+body[data-page="index.html"] .home-person .feature-copy .button {
+  align-self:flex-start;
+}
+
+
+/* v30: Doctor and clinic introductions are two full-width rows, rather than
+   two narrow cards side-by-side. On desktop each row puts the photograph to
+   the left of its copy; on small screens the photo goes above the copy. */
+body[data-page="index.html"] .home-people .people-grid {
+  grid-template-columns:minmax(0,1fr);
+  gap:24px;
+}
+body[data-page="index.html"] .home-people .home-people-item > .wrap {
+  width:100%;
+  max-width:none;
+  height:auto;
+}
+body[data-page="index.html"] .home-people .home-person .home-feature,
+body[data-page="index.html"] .home-people .home-place .home-about {
+  display:grid;
+  grid-template-columns:minmax(0,42%) minmax(0,58%);
+  align-items:stretch;
+  min-height:292px;
+  gap:0;
+}
+body[data-page="index.html"] .home-people .home-people-item figure {
+  margin:0;
+  height:100%;
+  min-width:0;
+}
+body[data-page="index.html"] .home-people .home-person .feature-photo img,
+body[data-page="index.html"] .home-people .home-place img {
+  width:100%;
+  height:100%;
+  min-height:292px;
+  max-height:370px;
+  display:block;
+  object-fit:cover;
+}
+body[data-page="index.html"] .home-people .home-person .feature-copy,
+body[data-page="index.html"] .home-people .home-place .home-about > div {
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  justify-content:center;
+  min-width:0;
+  padding:clamp(23px,3.2vw,42px);
+}
+body[data-page="index.html"] .home-people .home-people-item .button {
+  margin-top:18px;
+}
+@media(max-width:760px) {
+  body[data-page="index.html"] .home-people .home-person .home-feature,
+  body[data-page="index.html"] .home-people .home-place .home-about {
+    grid-template-columns:minmax(0,1fr);
+    min-height:0;
+  }
+  body[data-page="index.html"] .home-people .home-people-item figure {
+    height:auto;
+  }
+  body[data-page="index.html"] .home-people .home-person .feature-photo img,
+  body[data-page="index.html"] .home-people .home-place img {
+    height:auto;
+    min-height:0;
+    max-height:270px;
+    aspect-ratio:16/10;
+    object-fit:cover;
+  }
+  body[data-page="index.html"] .home-people .home-person .feature-copy,
+  body[data-page="index.html"] .home-people .home-place .home-about > div {
+    padding:22px;
+  }
+}
+
+
+/* v31: alternating introduction layout, desktop only.
+   Doctor: image left/text right; Clinic: text left/image right.
+   Mobile retains image first, description second. */
+@media (min-width:761px) {
+  body[data-page="index.html"] .home-people .home-place .home-about {
+    grid-template-columns:minmax(0,58%) minmax(0,42%);
+  }
+  body[data-page="index.html"] .home-people .home-place .home-about > div {
+    grid-column:1;
+    grid-row:1;
+  }
+  body[data-page="index.html"] .home-people .home-place .home-about > figure {
+    grid-column:2;
+    grid-row:1;
+  }
+}
+@media (max-width:760px) {
+  body[data-page="index.html"] .home-people .home-place .home-about > figure {
+    grid-column:1;
+    grid-row:1;
+  }
+  body[data-page="index.html"] .home-people .home-place .home-about > div {
+    grid-column:1;
+    grid-row:2;
+  }
+}
