@@ -368,3 +368,57 @@ body[data-page="index.html"] .hero-service-title .hero-departments {margin-botto
 body[data-page="index.html"] .hero-service-title .hero-departments > span {white-space:nowrap;}
 
 body[data-page="index.html"] .hero-service-title .hero-departments > span {display:inline-block;}
+
+
+/* Homepage hero text and vertical spacing refinements. */
+body[data-page="index.html"] .hero-content {
+  padding-bottom:23px;
+}
+body[data-page="index.html"] .hero-content h1.hero-service-title {
+  margin:0;
+  line-height:1.55;
+  letter-spacing:0;
+  text-wrap:normal;
+  overflow-wrap:normal;
+}
+body[data-page="index.html"] .hero-service-title .hero-departments {
+  margin:0 0 8px;
+  font-size:clamp(18px,1.55vw,22px);
+  white-space:nowrap;
+}
+body[data-page="index.html"] .hero-service-title .hero-departments > span {
+  display:inline;
+  white-space:nowrap;
+}
+body[data-page="index.html"] .hero-service-title .hero-practice-line {
+  font-size:clamp(16px,1.33vw,19px);
+  white-space:nowrap;
+}
+body[data-page="index.html"] .hero-live {
+  margin:17px 0 0;
+  padding:12px 0 0;
+  gap:4px;
+}
+body[data-page="index.html"] .hero-live-detail:empty { display:none; }
+@media(max-width:650px) {
+  body[data-page="index.html"] .hero-content {
+    padding:20px 17px 18px;
+  }
+  body[data-page="index.html"] .hero-service-title .hero-departments {
+    font-size:clamp(11.7px,3.7vw,16.2px);
+    margin-bottom:7px;
+  }
+  body[data-page="index.html"] .hero-service-title .hero-practice-line {
+    font-size:clamp(10.7px,3.3vw,14.5px);
+  }
+  body[data-page="index.html"] .hero-live {
+    margin-top:13px;
+    padding:11px 0 0;
+  }
+}
+@media(max-width:360px) {
+  body[data-page="index.html"] .hero-content {
+    padding-left:14px;
+    padding-right:14px;
+  }
+}
