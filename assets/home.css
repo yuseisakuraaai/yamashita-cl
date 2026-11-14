@@ -331,3 +331,40 @@ body[data-page="index.html"] .home-people .home-people-item .button {
     grid-row:2;
   }
 }
+
+
+/* v33: Highlight the clinic specialties and practice message in the hero. */
+body[data-page="index.html"] .hero-content h1.hero-service-title {
+  margin:0 0 22px;
+  color:#263846;
+  font-size:clamp(20px,1.9vw,24px)!important;
+  font-weight:600;
+  line-height:1.8;
+  letter-spacing:.015em;
+  overflow-wrap:anywhere;
+  text-wrap:pretty;
+}
+body[data-page="index.html"] .hero-content h1.hero-service-title br {display:block;}
+body[data-page="index.html"] #home-doctor .doctor-care-message {
+  margin:0 0 13px;
+  font-size:clamp(15px,1.35vw,18px);
+  color:#263e4e;
+  font-weight:600;
+  line-height:1.7;
+  letter-spacing:.01em;
+}
+@media(max-width:650px) {
+  body[data-page="index.html"] .hero-content h1.hero-service-title {
+    font-size:clamp(17px,4.6vw,20px)!important;
+    margin-bottom:18px;
+    line-height:1.75;
+  }
+  body[data-page="index.html"] #home-doctor .doctor-care-message {font-size:15px;}
+}
+
+body[data-page="index.html"] .hero-service-title .hero-departments,
+body[data-page="index.html"] .hero-service-title .hero-practice-line {display:block;}
+body[data-page="index.html"] .hero-service-title .hero-departments {margin-bottom:4px;}
+body[data-page="index.html"] .hero-service-title .hero-departments > span {white-space:nowrap;}
+
+body[data-page="index.html"] .hero-service-title .hero-departments > span {display:inline-block;}
