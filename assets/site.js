@@ -255,7 +255,9 @@
         const first=slots[0];
         if(active){
           headline='ただいま診療時間内です';inHours=true;
-          detail=thyroid?'甲状腺専門外来：午前9:00～12:00／午後14:30～17:00（完全予約制）':`本日の診療時間：${morning?'9:00～12:00':''}${morning&&afternoon?'／':''}${afternoon?'15:00～18:00':''}`;
+          // After the thyroid clinic ends at 17:00, ordinary care may still run until 18:00.
+          const thyroidActive=slots.some(slot=>slot.name==='甲状腺専門外来'&&mins>=slot.start&&mins<slot.end);
+          detail=thyroidActive?'甲状腺専門外来：午前9:00～12:00／午後14:30～17:00（完全予約制）':`本日の診療時間：${morning?'9:00～12:00':''}${morning&&afternoon?'／':''}${afternoon?'15:00～18:00':''}`;
         }else if(upcoming){
           if(first && mins<first.start){
             headline=`本日の診療は${formatClinicHour(first.start)}からです`;
@@ -280,10 +282,42 @@
     clinicNowBox?.classList.toggle('is-hours',inHours);
     clinicNowBox?.classList.toggle('is-off',!inHours);
   };
-  renderClinicStatus();
+  // Update exactly when the published clinic hours change, without reloading the page.
+  // The offset is fixed: Japan Standard Time does not observe daylight saving time.
+  // Midnight matters too: the day's closures and public holidays can change then.
+  const JST_OFFSET_MS=9*60*60*1000;
+  const DAY_MS=24*60*60*1000;
+  const clinicStatusBoundaryMinutes=[0,540,600,720,870,900,1020,1080];
+  let clinicBoundaryTimer=null;
+  const millisecondsToNextStatusChange=()=>{
+    const millisAfterJstMidnight=((Date.now()+JST_OFFSET_MS)%DAY_MS+DAY_MS)%DAY_MS;
+    const next=clinicStatusBoundaryMinutes
+      .map(minutes=>minutes*60*1000)
+      .find(at=>at>millisAfterJstMidnight);
+    // A small margin ensures we cross the boundary before recomputing the status.
+    return Math.max(100,(next===undefined?DAY_MS:next)-millisAfterJstMidnight+150);
+  };
+  const scheduleNextStatusChange=()=>{
+    if(!clinicNowStatus)return;
+    clearTimeout(clinicBoundaryTimer);
+    clinicBoundaryTimer=setTimeout(()=>{
+      renderClinicStatus();
+      scheduleNextStatusChange();
+    },millisecondsToNextStatusChange());
+  };
+  const refreshClinicStatus=()=>{
+    renderClinicStatus();
+    scheduleNextStatusChange();
+  };
   if(clinicNowStatus){
-    setInterval(renderClinicStatus,15000);
-    document.addEventListener('visibilitychange',()=>{if(!document.hidden)renderClinicStatus()});
+    refreshClinicStatus();
+    // Backup for device clock corrections or a timer delayed by browser sleep.
+    setInterval(refreshClinicStatus,60000);
+    document.addEventListener('visibilitychange',()=>{
+      if(!document.hidden)refreshClinicStatus();
+    });
+    window.addEventListener('focus',refreshClinicStatus);
+    window.addEventListener('pageshow',refreshClinicStatus);
   }
   // Both calendars are rebuilt at Japanese-month boundaries or on a publication refresh.
   const calendars=document.getElementById('clinicCalendars');

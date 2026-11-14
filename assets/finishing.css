@@ -587,3 +587,32 @@ body .site-footer .footer-hours > h4 + .footer-hours-scroll {
 
 /* Preserve the previously requested centered time labels in the footer. */
 body .site-footer .footer-hours-table tbody tr > th:first-child { text-align: center !important; }
+
+
+/* Mobile: the six specialty cards show the opening description only.
+   The full second sentence remains visible on desktop and on detail pages. */
+body[data-page="index.html"] .dept-card .dept-desc-primary,
+body[data-page="index.html"] .dept-card .dept-desc-secondary { display:block; }
+@media (max-width:760px) {
+  body[data-page="index.html"] .dept-card .dept-desc-secondary { display:none; }
+  /* Use the full text area of the doctor card on small screens. */
+  body[data-page="index.html"] .home-people .home-person .feature-copy {
+    box-sizing:border-box;
+    width:100%;
+    max-width:none;
+    padding-left:16px !important;
+    padding-right:16px !important;
+    align-items:stretch;
+    min-width:0;
+  }
+  body[data-page="index.html"] .home-people .home-person .feature-copy p {
+    display:block;
+    box-sizing:border-box;
+    width:100%;
+    max-width:none;
+    margin-left:0;
+    margin-right:0;
+    text-wrap:wrap;
+    overflow-wrap:anywhere;
+  }
+}
