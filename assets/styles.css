@@ -1176,3 +1176,31 @@ html {overflow-x:clip;}
   .article-post .article-date {font-size:17px;margin-bottom:21px;}
 }
 
+
+/* Consistent editorial type for patient-facing content.
+   The navigation/header remains exactly as in the previous release. */
+main .subhero h1 {
+  font-family: var(--sans);
+  font-weight: 700;
+  letter-spacing: .018em;
+  line-height: 1.48;
+}
+main .article-card h2,
+main .article-post h2 {
+  font-family: var(--sans);
+  font-weight: 700;
+  letter-spacing: .015em;
+  line-height: 1.52;
+  color: #2d4456;
+}
+main .article-card h3,
+main .article-post h3 {
+  font-family: var(--sans);
+  font-weight: 700;
+  letter-spacing: .01em;
+  line-height: 1.6;
+}
+main .article-card p,
+main .article-card li {
+  line-height: 1.85;
+}
