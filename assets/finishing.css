@@ -1,0 +1,562 @@
+/* Finishing adjustments for the existing patient website.
+   Layout, navigation links, clinic data and the eight-day schedule are unchanged. */
+
+/* 1. Mobile masthead: a compact, stable first row above the existing five links. */
+@media (max-width:560px) {
+  .site-header > .wrap {
+    grid-template-rows:60px auto !important;
+    row-gap:0 !important;
+  }
+  .site-header .site-logo img {
+    max-height:47px !important;
+    width:min(100%,clamp(146px,46vw,222px)) !important;
+  }
+  .site-header .header-actions {gap:7px !important;}
+  .site-header .header-call {
+    padding:7px 9px;
+    min-height:40px;
+    line-height:1.25;
+  }
+  .site-header .menu-btn {height:42px;width:42px;flex-basis:42px;min-height:42px;min-width:42px;}
+  .site-header .main-nav {
+    margin-top:0 !important;
+    padding-block:0 !important;
+    row-gap:0 !important;
+    column-gap:0 !important;
+    border-top:1px solid #e5e9eb;
+  }
+  .site-header .main-nav a {
+    min-height:44px;
+    padding-block:7px !important;
+    font-size:clamp(11.5px,3.25vw,13px) !important;
+    line-height:1.25 !important;
+  }
+}
+
+/* 4. The glass remains legible against both of the actual clinic photographs,
+      without hiding more of the photograph than necessary. */
+body[data-page="index.html"] .hero::after {
+  background:linear-gradient(90deg,rgba(29,43,55,.13),rgba(29,43,55,.035) 49%,transparent 77%);
+}
+body[data-page="index.html"] .hero-content {
+  max-width:510px;
+  background:rgba(251,253,254,.81);
+  -webkit-backdrop-filter:blur(6px) saturate(115%);
+  backdrop-filter:blur(6px) saturate(115%);
+  border:1px solid rgba(255,255,255,.78);
+  border-radius:16px !important;
+  box-shadow:0 8px 28px rgba(30,48,59,.09);
+}
+body[data-page="index.html"] .hero-content h1.hero-service-title {color:#2a4152;}
+body[data-page="index.html"] .hero-service-title .hero-practice-line {color:#41586a;}
+body[data-page="index.html"] .hero-live {border-top-color:rgba(58,82,101,.25);}
+body[data-page="index.html"] .hero-live-state {color:#264d60;}
+body[data-page="index.html"] .hero-live-detail {color:#496271;}
+@media (max-width:760px) {
+  body[data-page="index.html"] .hero-content {
+    max-width:100%;
+    background:rgba(251,253,254,.83);
+    padding:17px 18px 15px;
+    box-shadow:0 5px 20px rgba(30,48,59,.09);
+  }
+}
+
+/* 5. Notices: dates quietly secondary, titles and arrow never competing. */
+.news-list li {border-bottom:1px solid #e1e7ea;}
+.news-list li:last-child {border-bottom:0;}
+.news-list a {
+  grid-template-columns:88px minmax(0,1fr) 18px;
+  column-gap:17px;
+  padding:14px 5px;
+  min-width:0;
+}
+.news-list .news-date {
+  flex:none;
+  font-size:12px;
+  font-weight:400;
+  color:#748490;
+  font-variant-numeric:tabular-nums;
+}
+.news-list .news-title {
+  font-weight:500;
+  line-height:1.7;
+  color:#304b5d;
+  min-width:0;
+  overflow-wrap:anywhere;
+  line-break:strict;
+}
+.news-list li a::after,.news-list.page-news li a::after {
+  font-size:21px;
+  color:#8698a5;
+  opacity:.95;
+  transition:transform .18s ease,color .18s ease;
+}
+.news-list li a:hover::after {color:#3b6177;}
+body[data-page="index.html"] .visit-news .news-list a {gap:10px 16px;padding:13px 3px;}
+body[data-page="index.html"] .visit-news .news-date {font-size:11.5px;}
+body[data-page="index.html"] .visit-news .news-title {font-size:13.5px;line-height:1.7;}
+@media(max-width:560px) {
+  .news-list a,.article-card .news-list a {
+    grid-template-columns:minmax(0,1fr) 22px;
+    grid-template-rows:auto auto;
+    gap:4px 9px;
+    padding:14px 4px;
+  }
+  .news-list .news-date {font-size:11px;}
+  .news-list .news-title {font-size:13.5px;line-height:1.65;}
+  body[data-page="index.html"] .visit-news .news-title {font-size:13.3px;}
+}
+
+/* 3. Calendar: the date number itself identifies today; category colors fill
+      their cells, so 'today + thyroid' never looks like nested square boxes. */
+body[data-page="index.html"] .calendar-table td.today,
+body[data-page="index.html"] .calendar-table td.thyroid.today,
+body[data-page="index.html"] .calendar-table td.today:not(.thyroid) {
+  box-shadow:none !important;
+  outline:0 !important;
+}
+body[data-page="index.html"] .calendar-table td.today .cal-day {
+  display:grid;
+  place-items:center;
+  width:28px;
+  height:28px;
+  margin-inline:auto;
+  border:1.5px solid #36576f;
+  border-radius:50%;
+  background:rgba(255,255,255,.65);
+  color:#254659;
+  font-weight:700;
+  line-height:1;
+}
+body[data-page="index.html"] .calendar-table td.thyroid.today .cal-day {
+  background:rgba(255,255,255,.58);
+  color:#245846;
+  border-color:#2b6652;
+}
+body[data-page="index.html"] .calendar-table td {border-radius:7px !important;}
+body[data-page="index.html"] .calendar-table td .cal-note {
+  font-size:9px;
+  line-height:1.12;
+  font-weight:500;
+}
+body[data-page="index.html"] .calendar-key {
+  gap:8px 16px;
+  align-items:flex-start;
+  margin-top:17px;
+  padding-top:13px;
+}
+body[data-page="index.html"] .calendar-key li {
+  font-size:11.5px;
+  line-height:1.62;
+  padding-left:16px;
+  color:#5a6d7b;
+}
+body[data-page="index.html"] .calendar-key li::before {top:5px;width:9px;height:9px;border-radius:3px;}
+body[data-page="index.html"] #home-calendar .calendar-card {animation:clinicCalendarEnter .24s ease-out both;}
+@keyframes clinicCalendarEnter {from{opacity:.94;transform:translateY(3px)}to{opacity:1;transform:none}}
+@media (max-width:560px) {
+  body[data-page="index.html"] .calendar-key {gap:7px 13px;}
+  body[data-page="index.html"] .calendar-key li {font-size:11px;}
+}
+@media (prefers-reduced-motion:reduce) {
+  body[data-page="index.html"] #home-calendar .calendar-card {animation:none;}
+}
+
+/* 6. The two alternating introductions share a common photo and copy rhythm. */
+body[data-page="index.html"] .home-people .people-grid {gap:30px;}
+body[data-page="index.html"] .home-people .home-person .home-feature,
+body[data-page="index.html"] .home-people .home-place .home-about {
+  min-height:320px;
+  border:1px solid #dde5e9;
+  border-radius:16px !important;
+}
+body[data-page="index.html"] .home-people .home-people-item figure {min-height:0;}
+body[data-page="index.html"] .home-people .home-person .feature-photo img,
+body[data-page="index.html"] .home-people .home-place img {
+  display:block;
+  width:100%;
+  height:100%;
+  min-height:320px;
+  max-height:none;
+  object-fit:cover;
+}
+body[data-page="index.html"] .home-people .home-person .feature-photo img {object-position:center 32%;}
+body[data-page="index.html"] .home-people .home-person .feature-copy,
+body[data-page="index.html"] .home-people .home-place .home-about > div {
+  padding:clamp(27px,3.3vw,43px);
+  justify-content:center;
+  align-items:flex-start;
+}
+body[data-page="index.html"] .home-people .home-people-item h2 {margin:0 0 15px;}
+body[data-page="index.html"] .home-people .home-people-item p {margin:0 0 11px;line-height:1.85;}
+body[data-page="index.html"] .home-people .home-people-item .button {margin-top:17px;align-self:flex-start;}
+@media(max-width:760px) {
+  body[data-page="index.html"] .home-people .people-grid {gap:21px;}
+  body[data-page="index.html"] .home-people .home-person .feature-photo img,
+  body[data-page="index.html"] .home-people .home-place img {
+    min-height:0;
+    height:auto;
+    max-height:270px;
+    aspect-ratio:16/10;
+    object-fit:cover;
+  }
+  body[data-page="index.html"] .home-people .home-person .feature-copy,
+  body[data-page="index.html"] .home-people .home-place .home-about > div {padding:24px 22px 26px;}
+}
+
+/* 7. Footer: direct contact first, hours next, full visit notes retained. */
+.site-footer {background:#f7f8f8;border-top:1px solid #dde3e6;}
+.site-footer .footer-cols {column-gap:clamp(19px,2.8vw,34px);row-gap:24px;}
+.site-footer .footer-logo {width:min(100%,232px);margin-bottom:12px;}
+.site-footer .footer-contact {
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:3px;
+  margin-top:0;
+  font-style:normal;
+  color:#4c6070;
+  line-height:1.65;
+}
+.site-footer .footer-contact p {margin:0;}
+.site-footer .footer-contact a {font-size:15px;font-weight:600;color:#314e61;}
+.site-footer .footer-hours {
+  width:100%;
+  max-width:560px;
+  border-top:1px solid #d6e0e5;
+  padding-top:18px;
+  margin-top:17px;
+}
+.site-footer .footer-hours h4 {font-size:14px;font-weight:600;line-height:1.4;margin:0 0 11px;color:#324e61;}
+.site-footer .footer-hours-scroll {margin:0;}
+.site-footer .footer-hours-notes {
+  border-top:1px solid #e0e7eb;
+  margin-top:14px;
+  padding-top:12px;
+}
+.site-footer .footer-hours-notes p {color:#61717c;line-height:1.75;margin:0 0 7px;}
+.site-footer .footer-col:not(.footer-brand) h4 {
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:13px;
+  color:#344d5f;
+  padding-bottom:8px;
+  border-bottom:1px solid #dee5e8;
+}
+.site-footer .footer-col:not(.footer-brand) li {margin-bottom:8px;}
+.site-footer .footer-col:not(.footer-brand) a {color:#536976;}
+@media(max-width:560px) {
+  .site-footer .footer-cols {row-gap:26px;}
+  .site-footer .footer-contact {font-size:12px;}
+  .site-footer .footer-hours {margin-top:15px;padding-top:14px;}
+  .site-footer .footer-hours-notes {margin-top:12px;padding-top:10px;}
+  .site-footer .footer-col:not(.footer-brand) h4 {font-size:12.5px;}
+}
+
+
+/* === Release refinement: unified typography, visible hours, bordered news === */
+:root {
+  --serif: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  --sans:  "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+}
+/* Heading fonts are managed in the final typography rules below.
+   Keep table data, notices and navigation distinct from editorial headings. */
+
+/* Keep all nine columns (time + Mon–holiday) visible with no horizontal scrolling.
+   The header and the table share fixed column widths; widths also work at 320px. */
+body[data-page="index.html"] .visit-hours .schedule-scroll {
+  overflow-x:visible !important;
+  overflow-y:visible !important;
+  width:100%;
+  min-width:0;
+  max-width:100%;
+}
+body[data-page="index.html"] .visit-hours .schedule {
+  width:100% !important;
+  max-width:100% !important;
+  min-width:0 !important;
+  table-layout:fixed !important;
+  border-collapse:collapse;
+}
+body[data-page="index.html"] .visit-hours .schedule th,
+body[data-page="index.html"] .visit-hours .schedule td {
+  width:auto;
+  min-width:0 !important;
+  padding:10px 2px !important;
+  white-space:nowrap;
+  font-size:clamp(10px,.86vw,13px);
+}
+body[data-page="index.html"] .visit-hours .schedule th:first-child {
+  width:27%;
+  font-size:clamp(10px,.86vw,12px);
+}
+body[data-page="index.html"] .visit-hours .schedule thead th:not(:first-child) {
+  width:9.125%;
+}
+body[data-page="index.html"] .visit-hours .schedule tbody th {
+  font-variant-numeric:tabular-nums;
+  letter-spacing:-.035em;
+}
+@media (max-width:760px) {
+  body[data-page="index.html"] .visit-hours .schedule th,
+  body[data-page="index.html"] .visit-hours .schedule td {
+    font-size:clamp(9.5px,2.75vw,11.5px);
+    padding:9px 0 !important;
+  }
+  body[data-page="index.html"] .visit-hours .schedule th:first-child {
+    width:28.5%;
+    font-size:clamp(9px,2.6vw,11.2px);
+    letter-spacing:-.055em;
+  }
+  body[data-page="index.html"] .visit-hours .schedule thead th:not(:first-child) {
+    width:8.9375%;
+  }
+}
+
+/* The announcement panel is a real companion card to the clinic-hours panel. */
+body[data-page="index.html"] .visit-layout { align-items:stretch; }
+body[data-page="index.html"] .visit-news,
+body[data-page="index.html"] .visit-news > .wrap { height:100%; }
+body[data-page="index.html"] .visit-news > .wrap > .home-panel {
+  height:100%;
+  background:#fff !important;
+  border:1px solid #dae5eb !important;
+  border-radius:15px !important;
+  box-shadow:none !important;
+  padding:clamp(20px,2.2vw,29px) !important;
+}
+@media(max-width:760px) {
+  body[data-page="index.html"] .visit-news > .wrap > .home-panel {
+    padding:22px 20px 21px !important;
+  }
+}
+@media(max-width:380px) {
+  body[data-page="index.html"] .visit-news > .wrap > .home-panel {
+    padding:19px 15px 20px !important;
+  }
+}
+
+/* Restore today's single rectangular cell outline. Special-event background
+   stays a flat fill; do not draw a separate border around thyroid dates. */
+body[data-page="index.html"] .calendar-table td.today,
+body[data-page="index.html"] .calendar-table td.today:not(.thyroid),
+body[data-page="index.html"] .calendar-table td.thyroid.today {
+  box-shadow:inset 0 0 0 2px #395b74 !important;
+  outline:0 !important;
+  border-radius:6px !important;
+}
+body[data-page="index.html"] .calendar-table td.today .cal-day,
+body[data-page="index.html"] .calendar-table td.thyroid.today .cal-day {
+  display:block;
+  width:auto;
+  height:auto;
+  margin:0;
+  background:transparent !important;
+  border:0 !important;
+  border-radius:0 !important;
+  color:inherit;
+  font-weight:700;
+  line-height:normal;
+}
+body[data-page="index.html"] .calendar-table td.thyroid,
+body[data-page="index.html"] .calendar-table td.thyroid:not(.today) {
+  background:#d6ece4 !important;
+  box-shadow:none !important;
+  outline:0 !important;
+}
+
+/* A clear dot/slash is important even when the 8 weekday columns are compact. */
+body[data-page="index.html"] .visit-hours .schedule tbody td {
+  font-size:clamp(15px,1.2vw,18px) !important;
+  line-height:1.25;
+}
+@media (max-width:760px) {
+  body[data-page="index.html"] .visit-hours .schedule tbody td {
+    font-size:clamp(14px,3.6vw,16px) !important;
+  }
+}
+
+
+/* === Typography system: clinic editorial style ===
+   Heading: elegant Japanese Mincho used throughout the earlier design.
+   Content: warm, unobtrusive rounded Japanese type.
+   Only the hero's frosted-glass text uses crisp geometric Gothic. */
+:root {
+  --serif: "Shippori Mincho B1", "Yu Mincho", "Hiragino Mincho ProN", "Noto Serif CJK JP", serif;
+  --sans: "Zen Maru Gothic", "Hiragino Maru Gothic ProN", "Yu Gothic", "Noto Sans CJK JP", sans-serif;
+  --hero-font: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+}
+html body,
+html body :is(p, li, dt, dd, table, th, td, caption, address, label, input, button, textarea, select),
+html body :is(nav, a, .back-link, .section-lead, .subhero-lead),
+html body :is(.news-date, .news-title, .article-date, .feature-copy, .drawer-links) {
+  font-family: var(--sans);
+}
+/* All heading levels, from the page title to article subheadings and card titles.
+   Specific historical h2/h3 rules in home.css used Gothic, hence !important. */
+html body h1,
+html body h2,
+html body h3,
+html body h4,
+html body h5,
+html body h6 {
+  font-family: var(--serif) !important;
+  font-synthesis: weight;
+  letter-spacing: .012em;
+}
+/* The same editorial serif applies to non-heading title-like elements. */
+html body :is(.page-heading, .section-title, .card-title, .article-title, .feature-title) {
+  font-family: var(--serif) !important;
+}
+/* In the hero, all wording -- title and live clinic status -- stays in Gothic. */
+html body[data-page="index.html"] .hero-content,
+html body[data-page="index.html"] .hero-content :is(h1, h2, h3, p, span, strong, small) {
+  font-family: var(--hero-font) !important;
+  letter-spacing: inherit;
+}
+/* Small navigation icons/directional glyphs keep their UI font. */
+html body :is(.drawer-close, .back-arrow, .chev) {
+  font-family: var(--sans) !important;
+}
+
+/* ===========================================================================
+   Editorial heading scale and clinic-hours table proportions
+   Major Japanese Mincho headings use the same 28px/23px scale and 700 weight
+   as the existing "診療・専門外来" and "お知らせ" headings. Subheadings stay
+   smaller so the page hierarchy remains clear. The hero is unchanged.
+   =========================================================================== */
+:root {
+  --clinic-section-heading: 28px;
+}
+body main :is(
+  .section-heading h2,
+  .visit-heading h2,
+  .people-heading h2,
+  .home-clinic-hours-title h2,
+  .home-feature .feature-copy h2,
+  .home-about h2,
+  .care-introduction h2,
+  .article-card h2,
+  .physician-intro h2,
+  .article-section > h2,
+  .article-post > h2,
+  .article-media-heading
+) {
+  font-family: var(--serif) !important;
+  font-size: var(--clinic-section-heading) !important;
+  font-weight: 700 !important;
+  line-height: 1.45 !important;
+  letter-spacing: .012em !important;
+}
+/* Page titles match the same restrained section-heading rhythm. */
+body main .subhero h1 {
+  font-family: var(--serif) !important;
+  font-size: var(--clinic-section-heading) !important;
+  font-weight: 700 !important;
+  line-height: 1.5 !important;
+}
+/* Smaller secondary headings keep a readable, consistent hierarchy. */
+body main :is(.dept-card h3,.facility-card h3,.care-category > h3,
+  .physician-detail h3,.fact-card h3) {
+  font-family: var(--serif) !important;
+  font-weight: 600 !important;
+}
+@media (max-width: 760px) {
+  :root { --clinic-section-heading: 23px; }
+}
+
+/* Rebalance all regular 9-column hours tables: reclaim space from the time
+   label to enlarge all eight day columns, without scrolling or hiding holidays. */
+body .clinic-schedule .schedule-scroll {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: visible !important;
+}
+body .clinic-schedule table.schedule-v11 {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  table-layout: fixed !important;
+}
+body .clinic-schedule table.schedule-v11 :is(th,td) {
+  min-width: 0 !important;
+  padding: 10px 2px !important;
+  text-align: center;
+  white-space: nowrap;
+}
+body .clinic-schedule table.schedule-v11 tr > th:first-child {
+  width: 18% !important;
+  font-size: 11px !important;
+  letter-spacing: -.045em;
+  font-variant-numeric: tabular-nums;
+}
+body .clinic-schedule table.schedule-v11 thead tr > th:not(:first-child) {
+  width: 10.25% !important;
+}
+/* Larger article layouts need even less width for the time label. */
+@media (min-width: 761px) {
+  body .article-card .clinic-schedule table.schedule-v11 tr > th:first-child {
+    width: 12.5% !important;
+  }
+  body .article-card .clinic-schedule table.schedule-v11 thead tr > th:not(:first-child) {
+    width: 10.9375% !important;
+  }
+}
+body .clinic-schedule table.schedule-v11 tbody td {
+  font-size: clamp(16px, 1.28vw, 19px) !important;
+}
+@media (min-width: 761px) {
+  body .clinic-schedule table.schedule-v11 thead th:not(:first-child) {
+    font-size: 13px !important;
+  }
+  body .clinic-schedule table.schedule-v11 :is(th,td) {
+    padding-block: 13px !important;
+  }
+}
+/* The footer's narrow grid benefits from the same corrected proportions. */
+body .site-footer .footer-hours-table {
+  width: 100% !important;
+  min-width: 0 !important;
+  table-layout: fixed !important;
+}
+body .site-footer .footer-hours-table tr > th:first-child {
+  width: 14% !important;
+  min-width: 0 !important;
+  font-size: 9px !important;
+  letter-spacing: -.045em;
+  white-space: nowrap;
+}
+body .site-footer .footer-hours-table thead tr > th:not(:first-child) {
+  width: 10.75% !important;
+}
+body .site-footer .footer-hours-table :is(th,td) {
+  padding-inline: 1px !important;
+  min-width: 0 !important;
+}
+@media (max-width: 760px) {
+  body .clinic-schedule table.schedule-v11 tr > th:first-child {
+    width: 24% !important;
+    font-size: clamp(9px, 2.45vw, 10.5px) !important;
+    letter-spacing: -.07em;
+  }
+  body .clinic-schedule table.schedule-v11 thead tr > th:not(:first-child) {
+    width: 9.5% !important;
+  }
+  body .clinic-schedule table.schedule-v11 :is(th,td) {
+    padding: 9px 0 !important;
+  }
+  body .clinic-schedule table.schedule-v11 thead th:not(:first-child) {
+    font-size: clamp(9px, 2.5vw, 11px) !important;
+  }
+  body .clinic-schedule table.schedule-v11 tbody td {
+    font-size: clamp(13px, 3.55vw, 16px) !important;
+  }
+  body .site-footer .footer-hours-table tr > th:first-child {
+    width: 21% !important;
+    font-size: clamp(8px, 2.25vw, 9.5px) !important;
+  }
+  body .site-footer .footer-hours-table thead tr > th:not(:first-child) {
+    width: 9.875% !important;
+  }
+}
