@@ -927,3 +927,372 @@ body[data-page="index.html"] .home-people .home-people-item .button {
 @media (prefers-reduced-motion:reduce) {
   body[data-page="index.html"] .dept-card {transition:none;}
 }
+
+/* Editorial refinements: quieter hierarchy, consistent Japanese typesetting,
+   clinical calendar colors, and balanced photo/copy sections.
+   All existing links, pictures, patient information and header controls remain. */
+body[data-page="index.html"] {
+  --quiet-ink:#263d4f;
+  --quiet-text:#4b5f6d;
+  --quiet-border:#e0e7eb;
+}
+body[data-page="index.html"] main .home-section h2 {
+  font-family:var(--sans);
+  font-weight:500;
+  letter-spacing:.005em;
+  line-height:1.48;
+  color:var(--quiet-ink);
+}
+body[data-page="index.html"] main .section-heading h2,
+body[data-page="index.html"] main .visit-heading h2,
+body[data-page="index.html"] main .people-heading h2 {
+  font-size:clamp(25px,2.25vw,29px);
+  font-weight:500;
+}
+body[data-page="index.html"] main .home-section p {
+  color:var(--quiet-text);
+  line-height:1.85;
+  letter-spacing:0;
+}
+
+/* Not every section should occupy an identical band of space. */
+body[data-page="index.html"] .hero + #specialties,
+body[data-page="index.html"] #specialties {
+  padding-top:clamp(43px,4.7vw,59px);
+  padding-bottom:clamp(49px,5.1vw,66px);
+}
+body[data-page="index.html"] #specialties .section-heading {
+  margin-bottom:24px;
+}
+body[data-page="index.html"] #specialties .section-heading h2 {
+  font-size:clamp(25px,2.25vw,29px);
+}
+body[data-page="index.html"] #specialties .section-heading p {
+  margin-top:7px;
+  color:#647681;
+  font-size:13px;
+}
+body[data-page="index.html"] .home-visit {
+  background:#fff!important;
+  padding-top:clamp(62px,6vw,79px);
+  padding-bottom:clamp(64px,6.5vw,85px);
+  border-top:1px solid #edf0f2;
+}
+body[data-page="index.html"] .visit-heading {
+  margin-bottom:30px;
+}
+body[data-page="index.html"] .visit-layout {gap:clamp(25px,3.6vw,45px)}
+body[data-page="index.html"] .visit-hours {
+  background:#edf4f8!important;
+  border:1px solid #dae7ee!important;
+  padding:clamp(22px,2.5vw,31px)!important;
+}
+body[data-page="index.html"] .visit-hours .schedule th {
+  background:#e4edf3;
+  color:#344d60;
+}
+body[data-page="index.html"] .visit-hours .schedule th,
+body[data-page="index.html"] .visit-hours .schedule td {
+  border-color:#d5e2ea;
+}
+body[data-page="index.html"] .visit-hours .hours-notes p {
+  font-size:12px;
+  font-weight:400;
+  color:#4f6270;
+  line-height:1.75;
+}
+body[data-page="index.html"] .visit-hours .home-clinic-hours-title h2,
+body[data-page="index.html"] .visit-news .section-heading h2 {
+  font-size:23px;
+  font-weight:500;
+}
+body[data-page="index.html"] .visit-news > .wrap > .home-panel {
+  background:transparent!important;
+  padding:clamp(8px,1.5vw,17px) 0 0!important;
+}
+body[data-page="index.html"] .visit-news .news-list li {
+  border-bottom:1px solid #e6ebed;
+}
+body[data-page="index.html"] .visit-news .news-list a {
+  padding:13px 3px;
+}
+body[data-page="index.html"] .visit-news .news-title {
+  font-size:13.5px;
+  line-height:1.75;
+  font-weight:400;
+  color:#354c5c;
+}
+body[data-page="index.html"] .visit-news .news-date {
+  font-size:12px;
+  color:#718491;
+}
+
+/* Service illustrations keep their original drawings and order, with a more
+   restrained visual rhythm. */
+body[data-page="index.html"] .dept-grid {gap:clamp(12px,1.5vw,17px)}
+body[data-page="index.html"] .dept-card,
+body[data-page="index.html"] .glass-box.dept-card {
+  border-color:#e3e9ec;
+  box-shadow:none;
+  border-radius:14px!important;
+  padding-bottom:20px;
+}
+body[data-page="index.html"] .dept-card:hover,
+body[data-page="index.html"] .glass-box.dept-card:hover {
+  border-color:#a8bbc8;
+  box-shadow:0 4px 13px rgba(31,56,72,.055);
+  transform:none!important;
+}
+body[data-page="index.html"] .dept-card .dept-illustration {
+  background:#f5f8fa;
+  border-radius:9px!important;
+}
+body[data-page="index.html"] .dept-card h3 {
+  font-family:var(--sans);
+  font-weight:500;
+  letter-spacing:0;
+  font-size:17px;
+  color:#294255;
+  margin-bottom:6px;
+}
+body[data-page="index.html"] .dept-card p {
+  font-size:12.5px;
+  font-weight:400;
+  line-height:1.78;
+  color:#61727e;
+}
+body[data-page="index.html"] #specialties .home-actions {margin-top:24px}
+
+/* Only the directory button needs a full outline; supporting links are
+   typographic calls to action with subtle arrows and no extra pill. */
+body[data-page="index.html"] .home-actions .button {
+  min-height:44px;
+  padding:11px 21px;
+  border:1px solid #849dae;
+  border-radius:10px;
+  background:#fff;
+  color:#2e5068;
+  font-weight:500;
+  box-shadow:none;
+}
+body[data-page="index.html"] .home-actions .button:hover {
+  border-color:#43677f;
+  background:#f6f9fb;
+}
+body[data-page="index.html"] .home-news-actions .button,
+body[data-page="index.html"] .home-feature .feature-copy .button,
+body[data-page="index.html"] .home-about .button {
+  display:inline-flex;
+  align-items:center;
+  min-height:44px;
+  padding:8px 0;
+  border:0;
+  border-radius:0;
+  background:transparent;
+  color:#35566e;
+  font-weight:500;
+  box-shadow:none;
+  text-decoration:none;
+}
+body[data-page="index.html"] .home-news-actions .button:hover,
+body[data-page="index.html"] .home-feature .feature-copy .button:hover,
+body[data-page="index.html"] .home-about .button:hover {
+  background:transparent;
+  color:#1d415b;
+  text-decoration:underline;
+  text-underline-offset:4px;
+}
+body[data-page="index.html"] .home-news-actions .button .arrow,
+body[data-page="index.html"] .home-feature .feature-copy .button .arrow,
+body[data-page="index.html"] .home-about .button .arrow {font-weight:400}
+
+/* Calendar: solid category fills, no thyroid-specific outline. The existing
+   single outline for today's date stays meaningful when today is also thyroid. */
+body[data-page="index.html"] #home-calendar {
+  padding-top:clamp(69px,6.2vw,84px);
+  padding-bottom:clamp(53px,5vw,67px);
+  background:#fff!important;
+  border-top:1px solid #edf0f2;
+}
+body[data-page="index.html"] #home-calendar .section-heading {margin-bottom:27px}
+body[data-page="index.html"] #home-calendar .calendar-grid {gap:clamp(15px,2vw,26px)}
+body[data-page="index.html"] #home-calendar .calendar-card {
+  border:1px solid #e0e7eb;
+  border-radius:13px!important;
+  padding:clamp(17px,2.3vw,26px);
+  background:#fff;
+}
+body[data-page="index.html"] #home-calendar .calendar-card h3 {
+  font-size:17px;
+  font-weight:500;
+  letter-spacing:0;
+  padding-bottom:10px;
+  margin-bottom:12px;
+  border-bottom:1px solid #e6ebee;
+}
+body[data-page="index.html"] .calendar-table td {
+  border-color:#fff;
+  border-radius:6px!important;
+  color:#2e4657;
+  font-size:14px;
+}
+body[data-page="index.html"] .calendar-table td .cal-day {font-weight:500;}
+body[data-page="index.html"] .calendar-table td .cal-note {
+  font-size:9px;
+  font-weight:500;
+  letter-spacing:-.02em;
+}
+body[data-page="index.html"] .calendar-table td.closed {background:#e8edef;color:#4a6473}
+body[data-page="index.html"] .calendar-table td.am-closed {background:#deebf5;color:#355979}
+body[data-page="index.html"] .calendar-table td.pm-closed {background:#f7ebd8;color:#765b30}
+body[data-page="index.html"] .calendar-table td.thyroid,
+body[data-page="index.html"] .calendar-table td.thyroid:not(.today) {
+  background:#d6ece4;
+  color:#285b4a;
+  box-shadow:none!important;
+  outline:0!important;
+}
+body[data-page="index.html"] .calendar-table td.thyroid.today {
+  background:#d6ece4;
+  color:#214b3c;
+  /* Single today outline; no second border for the thyroid specialty. */
+  box-shadow:inset 0 0 0 2px #395b74!important;
+  outline:0!important;
+}
+body[data-page="index.html"] .calendar-table td.early {background:#ece4f1;color:#624d70;box-shadow:none}
+body[data-page="index.html"] .calendar-table td.today:not(.thyroid) {
+  box-shadow:inset 0 0 0 2px #395b74!important;
+}
+body[data-page="index.html"] .calendar-key {
+  padding-top:15px;
+  border-top:1px solid #edf0f2;
+  margin-top:23px;
+  justify-content:flex-start;
+  color:#536a78;
+  gap:9px 18px;
+  line-height:1.65;
+}
+body[data-page="index.html"] .calendar-key li {font-size:12px}
+body[data-page="index.html"] .calendar-key .legend-closed::before {background:#c6d4dc}
+body[data-page="index.html"] .calendar-key .legend-am-closed::before {background:#b9d3e9}
+body[data-page="index.html"] .calendar-key .legend-pm-closed::before {background:#ead0a9}
+body[data-page="index.html"] .calendar-key .legend-thyroid::before {background:#a6d5c3}
+body[data-page="index.html"] .calendar-key .legend-early::before {background:#cfbedc}
+
+/* White space, not colorful boxes, separates route and team information. */
+body[data-page="index.html"] #home-access {
+  padding-top:clamp(58px,5.4vw,75px);
+  padding-bottom:clamp(58px,5.4vw,75px);
+  background:#f8f9f9!important;
+}
+body[data-page="index.html"] #home-access .home-panel {border-radius:15px!important;}
+body[data-page="index.html"] #home-access .access-points span {
+  background:transparent;
+  border:0;
+  border-radius:0;
+  border-bottom:1px solid #dce4e8;
+  padding:5px 0;
+  color:#536c7c;
+  font-weight:500;
+}
+body[data-page="index.html"] .home-people {
+  padding-top:clamp(70px,7vw,92px);
+  padding-bottom:clamp(80px,8vw,104px);
+  background:#fff!important;
+}
+body[data-page="index.html"] .home-people .people-heading {margin-bottom:31px;}
+body[data-page="index.html"] .home-people .people-grid {gap:clamp(25px,3.4vw,39px);}
+body[data-page="index.html"] .home-people .home-person .home-feature,
+body[data-page="index.html"] .home-people .home-place .home-about {
+  min-height:320px;
+  border:1px solid #e3e8eb;
+  box-shadow:none;
+  border-radius:15px!important;
+}
+body[data-page="index.html"] .home-people .home-person .feature-photo img,
+body[data-page="index.html"] .home-people .home-place img {
+  height:100%;
+  min-height:320px;
+  max-height:410px;
+  object-fit:cover;
+}
+body[data-page="index.html"] .home-people .home-person .feature-copy,
+body[data-page="index.html"] .home-people .home-place .home-about > div {
+  padding:clamp(28px,3.8vw,47px);
+  align-items:flex-start;
+  justify-content:center;
+}
+body[data-page="index.html"] .home-people .home-people-item h2 {
+  font-size:clamp(22px,2vw,25px);
+  font-weight:500;
+  line-height:1.45;
+  margin-bottom:17px;
+}
+body[data-page="index.html"] .home-people .home-people-item p {
+  font-size:14px;
+  line-height:1.89;
+  margin-bottom:10px;
+  color:#4c606e;
+}
+body[data-page="index.html"] #home-doctor .doctor-care-message {
+  font-size:16px;
+  font-weight:500;
+  margin-bottom:13px;
+}
+body[data-page="index.html"] .home-people .home-people-item .button {margin-top:13px;}
+
+@media (max-width:1150px) {
+  body[data-page="index.html"] .visit-layout {grid-template-columns:minmax(0,1fr);gap:34px;}
+  body[data-page="index.html"] .visit-news > .wrap > .home-panel {padding:0!important;}
+}
+@media (max-width:760px) {
+  body[data-page="index.html"] .hero + #specialties,
+  body[data-page="index.html"] #specialties {padding-top:43px;padding-bottom:50px;}
+  body[data-page="index.html"] .home-visit {padding-block:55px 64px;}
+  body[data-page="index.html"] .visit-layout {gap:25px;}
+  body[data-page="index.html"] .visit-news .news-title {font-size:13px;}
+  body[data-page="index.html"] .home-people .home-person .feature-photo img,
+  body[data-page="index.html"] .home-people .home-place img {
+    height:auto;
+    min-height:0;
+    max-height:265px;
+    aspect-ratio:16/10;
+  }
+  body[data-page="index.html"] .home-people .home-person .feature-copy,
+  body[data-page="index.html"] .home-people .home-place .home-about > div {padding:25px 23px 27px;}
+  body[data-page="index.html"] #home-calendar {padding-block:61px 64px;}
+  body[data-page="index.html"] #home-access {padding-block:56px;}
+  body[data-page="index.html"] .home-people {padding-block:68px 74px;}
+}
+@media (max-width:650px) {
+  body[data-page="index.html"] .dept-card h3 {font-size:14px;}
+  body[data-page="index.html"] .dept-card p {font-size:11.6px;}
+  body[data-page="index.html"] #home-calendar .calendar-key {justify-content:flex-start;}
+}
+
+
+/* The appointment notes and hours table share the same pale-blue surface.
+   Avoid a white rectangle appearing below the table on mobile Safari. */
+body[data-page="index.html"] .visit-hours .clinic-schedule,
+body[data-page="index.html"] .visit-hours .hours-notes,
+body[data-page="index.html"] .visit-hours .schedule-scroll {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+body[data-page="index.html"] .visit-hours .clinic-schedule {
+  border: 0 !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  overflow: visible;
+}
+body[data-page="index.html"] .visit-hours .hours-notes {
+  border: 0 !important;
+  border-radius: 0 !important;
+  margin-top: 14px;
+  padding: 11px 0 0;
+  color: #4f6270;
+}
+body[data-page="index.html"] .visit-hours .hours-notes p,
+body[data-page="index.html"] .visit-hours .hours-notes p.thyroid-hours-note {
+  background: transparent !important;
+}
