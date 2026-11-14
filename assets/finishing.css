@@ -560,3 +560,30 @@ body .site-footer .footer-hours-table :is(th,td) {
     width: 9.875% !important;
   }
 }
+
+
+/* v1.14: Restore the exact Version 1.10 clinic-hours table geometry.
+   Only add breathing room between the heading and the table. */
+body[data-page="index.html"] .visit-hours .home-clinic-hours-title {
+  margin-bottom: 25px !important;
+}
+body main .article-section > h2 + .clinic-schedule {
+  margin-top: 22px !important;
+}
+body .site-footer .footer-hours > h4 + .footer-hours-scroll {
+  margin-top: 16px;
+}
+@media (max-width: 760px) {
+  body[data-page="index.html"] .visit-hours .home-clinic-hours-title {
+    margin-bottom: 21px !important;
+  }
+  body main .article-section > h2 + .clinic-schedule {
+    margin-top: 18px !important;
+  }
+  body .site-footer .footer-hours > h4 + .footer-hours-scroll {
+    margin-top: 14px;
+  }
+}
+
+/* Preserve the previously requested centered time labels in the footer. */
+body .site-footer .footer-hours-table tbody tr > th:first-child { text-align: center !important; }
