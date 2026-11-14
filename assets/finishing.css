@@ -589,12 +589,12 @@ body .site-footer .footer-hours > h4 + .footer-hours-scroll {
 body .site-footer .footer-hours-table tbody tr > th:first-child { text-align: center !important; }
 
 
-/* Mobile: the six specialty cards show the opening description only.
-   The full second sentence remains visible on desktop and on detail pages. */
+/* Specialty descriptions: two separate lines on desktop; inline sentences on mobile. */
 body[data-page="index.html"] .dept-card .dept-desc-primary,
 body[data-page="index.html"] .dept-card .dept-desc-secondary { display:block; }
 @media (max-width:760px) {
-  body[data-page="index.html"] .dept-card .dept-desc-secondary { display:none; }
+  body[data-page="index.html"] .dept-card .dept-desc-primary,
+  body[data-page="index.html"] .dept-card .dept-desc-secondary { display:inline; }
   /* Use the full text area of the doctor card on small screens. */
   body[data-page="index.html"] .home-people .home-person .feature-copy {
     box-sizing:border-box;
